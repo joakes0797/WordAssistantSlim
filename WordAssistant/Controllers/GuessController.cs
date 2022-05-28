@@ -12,81 +12,9 @@ namespace WordAssistant.Controllers
         {
             this.repo = repo;
         }
-
-        public IActionResult GuessCheck(GuessViewModel answer)
+        public IActionResult GuessCheck2(GuessViewModel answer)
         {
-            //------------------------------------------------------green letters
-            var greenLetters = "";
-
-            if (answer.B01 is null)
-            {
-                greenLetters += "_";
-            }
-            else
-            {
-                greenLetters += answer.B01;
-            }
-
-            if (answer.B02 is null)
-            {
-                greenLetters += "_";
-            }
-            else
-            {
-                greenLetters += answer.B02;
-            }
-
-            if (answer.B03 is null)
-            {
-                greenLetters += "_";
-            }
-            else
-            {
-                greenLetters += answer.B03;
-            }
-
-            if (answer.B04 is null)
-            {
-                greenLetters += "_";
-            }
-            else
-            {
-                greenLetters += answer.B04;
-            }
-
-            if (answer.B05 is null)
-            {
-                greenLetters += "_";
-            }
-            else
-            {
-                greenLetters += answer.B05;
-            }
-
-            //------------------------------------------------------yellow letters
-
-            var y1 = $"%{answer.B06}%";
-            var y2 = $"%{answer.B07}%";
-            var y3 = $"%{answer.B08}%";
-            var y4 = $"%{answer.B09}%";
-            var y5 = $"%{answer.B10}%";
-
-            //------------------------------------------------------gray letters
-
-            string g01 = answer.B11 is null ? "" : $"%{answer.B11}%";
-            string g02 = answer.B12 is null ? "" : $"%{answer.B12}%";
-            string g03 = answer.B13 is null ? "" : $"%{answer.B13}%";
-            string g04 = answer.B14 is null ? "" : $"%{answer.B14}%";
-            string g05 = answer.B15 is null ? "" : $"%{answer.B15}%";
-            string g06 = answer.B16 is null ? "" : $"%{answer.B16}%";
-            string g07 = answer.B17 is null ? "" : $"%{answer.B17}%";
-            string g08 = answer.B18 is null ? "" : $"%{answer.B18}%";
-            string g09 = answer.B19 is null ? "" : $"%{answer.B19}%";
-            string g10 = answer.B20 is null ? "" : $"%{answer.B20}%";
-
-            //------------------------------------------------------View Logic
-
-            var results = repo.GetResults(greenLetters, y1, y2, y3, y4, y5, g01, g02, g03, g04, g05, g06, g07, g08, g09, g10);
+            var results = repo.GetResults2(answer.B01, answer.B02, answer.B03, answer.B04, answer.B05, answer.B06, answer.B07, answer.B08, answer.B09, answer.B10, answer.B11, answer.B12, answer.B13, answer.B14, answer.B15, answer.B16, answer.B17, answer.B18, answer.B19, answer.B20);
             var count = results.Count();
             var viewModel = new ResultViewModel();
 
@@ -102,9 +30,106 @@ namespace WordAssistant.Controllers
             {
                 viewModel.TableHeadMessage = $"{count} Potential Answers";
             }
-            
+
             viewModel.Words = results;
             return View("../Home/Results", viewModel);
         }
+
+        //public IActionResult GuessCheck(GuessViewModel answer)
+        //{
+        //    //------------------------------------------------------green letters
+        //    var greenLetters = "";
+
+        //    if (answer.B01 is null)
+        //    {
+        //        greenLetters += "%";
+        //    }
+        //    else
+        //    {
+        //        greenLetters += answer.B01;
+        //    }
+
+        //    if (answer.B02 is null)
+        //    {
+        //        greenLetters += "%";
+        //    }
+        //    else
+        //    {
+        //        greenLetters += answer.B02;
+        //    }
+
+        //    if (answer.B03 is null)
+        //    {
+        //        greenLetters += "%";
+        //    }
+        //    else
+        //    {
+        //        greenLetters += answer.B03;
+        //    }
+
+        //    if (answer.B04 is null)
+        //    {
+        //        greenLetters += "%";
+        //    }
+        //    else
+        //    {
+        //        greenLetters += answer.B04;
+        //    }
+
+        //    if (answer.B05 is null)
+        //    {
+        //        greenLetters += "%";
+        //    }
+        //    else
+        //    {
+        //        greenLetters += answer.B05;
+        //    }
+
+        //    //greenLetters = greenLetters.Replace("%%", "%");
+        //    //greenLetters = greenLetters.Replace("%%", "%");
+
+        //    //------------------------------------------------------yellow letters
+
+        //    var y1 = $"%{answer.B06}%";
+        //    var y2 = $"%{answer.B07}%";
+        //    var y3 = $"%{answer.B08}%";
+        //    var y4 = $"%{answer.B09}%";
+        //    var y5 = $"%{answer.B10}%";
+
+        //    //------------------------------------------------------gray letters
+
+        //    string g01 = answer.B11 is null ? "" : $"%{answer.B11}%";
+        //    string g02 = answer.B12 is null ? "" : $"%{answer.B12}%";
+        //    string g03 = answer.B13 is null ? "" : $"%{answer.B13}%";
+        //    string g04 = answer.B14 is null ? "" : $"%{answer.B14}%";
+        //    string g05 = answer.B15 is null ? "" : $"%{answer.B15}%";
+        //    string g06 = answer.B16 is null ? "" : $"%{answer.B16}%";
+        //    string g07 = answer.B17 is null ? "" : $"%{answer.B17}%";
+        //    string g08 = answer.B18 is null ? "" : $"%{answer.B18}%";
+        //    string g09 = answer.B19 is null ? "" : $"%{answer.B19}%";
+        //    string g10 = answer.B20 is null ? "" : $"%{answer.B20}%";
+
+        //    //------------------------------------------------------View Logic
+
+        //    var results = repo.GetResults(greenLetters, y1, y2, y3, y4, y5, g01, g02, g03, g04, g05, g06, g07, g08, g09, g10);
+        //    var count = results.Count();
+        //    var viewModel = new ResultViewModel();
+
+        //    if (count == 1)
+        //    {
+        //        viewModel.TableHeadMessage = "Best result";
+        //    }
+        //    else if (count == 0)
+        //    {
+        //        viewModel.TableHeadMessage = "No results found.";
+        //    }
+        //    else
+        //    {
+        //        viewModel.TableHeadMessage = $"{count} Potential Answers";
+        //    }
+            
+        //    viewModel.Words = results;
+        //    return View("../Home/Results", viewModel);
+        //}
     }
 }
