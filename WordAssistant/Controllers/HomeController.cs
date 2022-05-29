@@ -14,6 +14,10 @@ namespace WordAssistant.Controllers
         {
             _logger = logger;
         }
+        public IActionResult Donate()
+        {
+            return View();
+        }
 
         public IActionResult Index()
         {
