@@ -96,56 +96,56 @@ namespace WordAssistant
 
             //---------------------------------------------------------------- green logic
 
-            Regex regex = new Regex($"{gn1}{gn2}{gn3}{gn4}{gn5}");
+            Regex regex = new Regex($"{gn1.ToLower()}{gn2.ToLower()}{gn3.ToLower()}{gn4.ToLower()}{gn5.ToLower()}");
             var foo = Answer.WordleAnswers.Where(word => regex.IsMatch(word));
 
             //---------------------------------------------------------------- yellow logic
 
-            Regex regexY1 = new Regex($"{y1}");
+            Regex regexY1 = new Regex($"{y1.ToLower()}");
             var foo2 = foo.Where(word => regexY1.IsMatch(word));
 
-            Regex regexY2 = new Regex($"{y2}");
+            Regex regexY2 = new Regex($"{y2.ToLower()}");
             var foo3 = foo2.Where(word => regexY2.IsMatch(word));
 
-            Regex regexY3 = new Regex($"{y3}");
+            Regex regexY3 = new Regex($"{y3.ToLower()}");
             var foo4 = foo3.Where(word => regexY3.IsMatch(word));
 
-            Regex regexY4 = new Regex($"{y4}");
+            Regex regexY4 = new Regex($"{y4.ToLower()}");
             var foo5 = foo4.Where(word => regexY4.IsMatch(word));
 
-            Regex regexY5 = new Regex($"{y5}");
+            Regex regexY5 = new Regex($"{y5.ToLower()}");
             var foo6 = foo5.Where(word => regexY5.IsMatch(word));
 
             //---------------------------------------------------------------- gray logic
 
-            Regex regexG01 = new Regex($"{g01}");
+            Regex regexG01 = new Regex($"{g01.ToLower()}");
             var foo7 = foo6.Where(word => !regexG01.IsMatch(word));
 
-            Regex regexG02 = new Regex($"{g02}");
+            Regex regexG02 = new Regex($"{g02.ToLower()}");
             var foo8 = foo7.Where(word => !regexG02.IsMatch(word));
 
-            Regex regexG03 = new Regex($"{g03}");
+            Regex regexG03 = new Regex($"{g03.ToLower()}");
             var foo9 = foo8.Where(word => !regexG03.IsMatch(word));
 
-            Regex regexG04 = new Regex($"{g04}");
+            Regex regexG04 = new Regex($"{g04.ToLower()}");
             var foo10 = foo9.Where(word => !regexG04.IsMatch(word));
 
-            Regex regexG05 = new Regex($"{g05}");
+            Regex regexG05 = new Regex($"{g05.ToLower()}");
             var foo11 = foo10.Where(word => !regexG05.IsMatch(word));
 
-            Regex regexG06 = new Regex($"{g06}");
+            Regex regexG06 = new Regex($"{g06.ToLower()}");
             var foo12 = foo11.Where(word => !regexG06.IsMatch(word));
 
-            Regex regexG07 = new Regex($"{g07}");
+            Regex regexG07 = new Regex($"{g07.ToLower()}");
             var foo13 = foo12.Where(word => !regexG07.IsMatch(word));
 
-            Regex regexG08 = new Regex($"{g08}");
+            Regex regexG08 = new Regex($"{g08.ToLower()}");
             var foo14 = foo13.Where(word => !regexG08.IsMatch(word));
 
-            Regex regexG09 = new Regex($"{g09}");
+            Regex regexG09 = new Regex($"{g09.ToLower()}");
             var foo15 = foo14.Where(word => !regexG09.IsMatch(word));
 
-            Regex regexG10 = new Regex($"{g10}");
+            Regex regexG10 = new Regex($"{g10.ToLower()}");
             var foo16 = foo15.Where(word => !regexG10.IsMatch(word));
 
             return foo16;
