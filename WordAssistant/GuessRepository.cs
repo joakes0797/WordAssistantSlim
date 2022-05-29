@@ -15,9 +15,6 @@ namespace WordAssistant
         //    _conn = conn;
         //}
         //private readonly Answer _answer;
-        //public static readonly List<string> WordleAnswers = new() { "cigar", "rebut", "sissy", "humph", "awake", "blush",
-        //    "focal", "evade", "naval", "serve", "heath", "dwarf", "model", "karma", "stink", "grade", "quiet", "bench", 
-        //    "abate", "feign", "major", "death", "fresh", "crust", "stool" };
 
         public IEnumerable<string> GetResults(string green, string y1, string y2, string y3, string y4, string y5, string g01, string g02, string g03, string g04, string g05, string g06, string g07, string g08, string g09, string g10)
         {
@@ -92,46 +89,46 @@ namespace WordAssistant
             {
                 y5 = ".";
             }
-            //if (g01 is null)
-            //{
-            //    g01 = ".";
-            //}
-            //if (g02 is null)
-            //{
-            //    g02 = ".";
-            //}
-            //if (g03 is null)
-            //{
-            //    g03 = ".";
-            //}
-            //if (g04 is null)
-            //{
-            //    g04 = ".";
-            //}
-            //if (g05 is null)
-            //{
-            //    g05 = ".";
-            //}
-            //if (g06 is null)
-            //{
-            //    g06 = ".";
-            //}
-            //if (g07 is null)
-            //{
-            //    g07 = ".";
-            //}
-            //if (g08 is null)
-            //{
-            //    g08 = ".";
-            //}
-            //if (g09 is null)
-            //{
-            //    g09 = ".";
-            //}
-            //if (g10 is null)
-            //{
-            //    g10 = ".";
-            //}
+            if (g01 is null)
+            {
+                g01 = "#";
+            }
+            if (g02 is null)
+            {
+                g02 = "#";
+            }
+            if (g03 is null)
+            {
+                g03 = "#";
+            }
+            if (g04 is null)
+            {
+                g04 = "#";
+            }
+            if (g05 is null)
+            {
+                g05 = "#";
+            }
+            if (g06 is null)
+            {
+                g06 = "#";
+            }
+            if (g07 is null)
+            {
+                g07 = "#";
+            }
+            if (g08 is null)
+            {
+                g08 = "#";
+            }
+            if (g09 is null)
+            {
+                g09 = "#";
+            }
+            if (g10 is null)
+            {
+                g10 = "#";
+            }
 
             Regex regex = new Regex($"{gn1}{gn2}{gn3}{gn4}{gn5}");
             var foo = Answer.WordleAnswers.Where(word => regex.IsMatch(word));
@@ -151,54 +148,38 @@ namespace WordAssistant
             Regex regexY5 = new Regex($"{y5}");
             var foo6 = foo5.Where(word => regexY5.IsMatch(word));
             //----------------------------------------------------------------------------
-            //Regex regexG01 = new Regex($"{g01}");
-            //var foo7 = foo6.Where(word => regexG01.IsMatch(word));
+            Regex regexG01 = new Regex($"{g01}");
+            var foo7 = foo6.Where(word => !regexG01.IsMatch(word));
 
-            //Regex regexG02 = new Regex($"{g02}");
-            //var foo8 = foo7.Where(word => regexG02.IsMatch(word));
+            Regex regexG02 = new Regex($"{g02}");
+            var foo8 = foo7.Where(word => !regexG02.IsMatch(word));
 
-            //Regex regexG03 = new Regex($"{g03}");
-            //var foo9 = foo8.Where(word => regexG03.IsMatch(word));
+            Regex regexG03 = new Regex($"{g03}");
+            var foo9 = foo8.Where(word => !regexG03.IsMatch(word));
 
-            //Regex regexG04 = new Regex($"{g04}");
-            //var foo10 = foo9.Where(word => regexG04.IsMatch(word));
+            Regex regexG04 = new Regex($"{g04}");
+            var foo10 = foo9.Where(word => !regexG04.IsMatch(word));
 
-            //Regex regexG05 = new Regex($"{g05}");
-            //var foo11 = foo10.Where(word => regexG05.IsMatch(word));
+            Regex regexG05 = new Regex($"{g05}");
+            var foo11 = foo10.Where(word => !regexG05.IsMatch(word));
 
-            //Regex regexG06 = new Regex($"{g06}");
-            //var foo12 = foo11.Where(word => regexG06.IsMatch(word));
+            Regex regexG06 = new Regex($"{g06}");
+            var foo12 = foo11.Where(word => !regexG06.IsMatch(word));
 
-            //Regex regexG07 = new Regex($"{g07}");
-            //var foo13 = foo12.Where(word => regexG07.IsMatch(word));
+            Regex regexG07 = new Regex($"{g07}");
+            var foo13 = foo12.Where(word => !regexG07.IsMatch(word));
 
-            //Regex regexG08 = new Regex($"{g08}");
-            //var foo14 = foo13.Where(word => regexG08.IsMatch(word));
+            Regex regexG08 = new Regex($"{g08}");
+            var foo14 = foo13.Where(word => !regexG08.IsMatch(word));
 
-            //Regex regexG09 = new Regex($"{g09}");
-            //var foo15 = foo14.Where(word => regexG09.IsMatch(word));
+            Regex regexG09 = new Regex($"{g09}");
+            var foo15 = foo14.Where(word => !regexG09.IsMatch(word));
 
-            //Regex regexG10 = new Regex($"{g10}");
-            //var foo16 = foo15.Where(word => regexG10.IsMatch(word));
+            Regex regexG10 = new Regex($"{g10}");
+            var foo16 = foo15.Where(word => !regexG10.IsMatch(word));
 
 
-
-            //var foo = WordleAnswers.Where(word => word[0].ToString() == gn1 && word[1].ToString() == gn2);
-            //var foo = from word in WordleAnswers
-            //          where word[0].ToString() == gn1 &&
-            //                word[1].ToString() == gn2 &&
-            //                word[2].ToString() == gn3 &&
-            //                word[3].ToString() == gn4 &&
-            //                word[4].ToString() == gn5
-            //          select word;
-            //var foo = from x in WordleAnswers
-            //          where x.Contains(green) 
-            //          && x.Contains(y1) && x.Contains(y2) && x.Contains(y3) && x.Contains(y4) && x.Contains(y5)
-            //          && !x.Contains(g01) && !x.Contains(g02) && !x.Contains(g03) && !x.Contains(g04) && !x.Contains(g05)
-            //          && !x.Contains(g06) && !x.Contains(g07) && !x.Contains(g08) && !x.Contains(g09) && !x.Contains(g10)
-            //          orderby x
-            //          select x;
-            return foo6;
+            return foo16;
         }
     }
 }
