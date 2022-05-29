@@ -6,15 +6,15 @@ namespace WordAssistant.Controllers
 {
     public class GuessController : Controller
     {
-        private readonly IGuessService repo;
+        private readonly IGuessService service;
 
-        public GuessController(IGuessService repo)
+        public GuessController(IGuessService service)
         {
-            this.repo = repo;
+            this.service = service;
         }
         public IActionResult GuessCheck(GuessViewModel answer)
         {
-            var results = repo.GetResults(answer.B01, answer.B02, answer.B03, answer.B04, answer.B05, answer.B06, answer.B07, answer.B08, answer.B09, answer.B10, answer.B11, answer.B12, answer.B13, answer.B14, answer.B15, answer.B16, answer.B17, answer.B18, answer.B19, answer.B20);
+            var results = service.GetResults(answer.B01, answer.B02, answer.B03, answer.B04, answer.B05, answer.B06, answer.B07, answer.B08, answer.B09, answer.B10, answer.B11, answer.B12, answer.B13, answer.B14, answer.B15, answer.B16, answer.B17, answer.B18, answer.B19, answer.B20);
             var count = results.Count();
             var viewModel = new ResultViewModel();
 
