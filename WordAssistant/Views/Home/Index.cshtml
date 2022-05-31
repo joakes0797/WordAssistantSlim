@@ -2,12 +2,18 @@
     ViewData["Title"] = "Help for Wordle";
 }
 
-<div class="container text-center my-4">
-    <h3 class="display-4">WordleAssistant</h3>
-    <h4>Helping you narrow down today's Wordle answer.</h4>
+<div>
+    <div class="row my-4">
+        <div class="col col-lg-4"></div>
+        <div class="col-12 col-lg-4 text-center">
+            <h3 class="display-4">WordleAssistant</h3>
+            <h4>Helping you narrow down today's Wordle answer.</h4>
+        </div>
+        <div class="col col-lg-4"></div>
+    </div>
 </div>
 
-<div class="container">
+<div>
     @*-------------------------this is the form container*@
     @using (Html.BeginForm("GuessCheck", "Guess", "Post"))
     {
