@@ -148,7 +148,7 @@ namespace WordAssistant
             Regex regexG10 = new Regex($"{g10.ToLower()}");
             var foo16 = foo15.Where(word => !regexG10.IsMatch(word));
 
-            return foo16;
+            return foo16.OrderBy(word => word);
         }
     }
 }
